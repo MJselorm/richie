@@ -1,4 +1,4 @@
-const API = "http://localhost:8000/auth";
+const API = "https://richie-iynf.onrender.com";
 
 /* ========================================
    TAB SWITCHING
