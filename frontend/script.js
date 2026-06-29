@@ -1,4 +1,4 @@
-const API = "https://richie-iynf.onrender.com/auth";
+const API = "http://localhost:8000/auth";
 
 /* ========================================
    TAB SWITCHING
@@ -104,7 +104,7 @@ async function login(event) {
     }
     
     try {
-        const res = await fetch(`${API}/login`, {
+        const res = await fetch(`${API}/signin`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
