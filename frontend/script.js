@@ -19,6 +19,19 @@ function switchTab(tabName) {
     
     // Add active class to clicked tab
     event.target.classList.add('active');
+
+    // Update the form heading to match the active tab
+    const title = document.getElementById('formTitle');
+    const subtitle = document.getElementById('formSubtitle');
+    if (title && subtitle) {
+        if (tabName === 'signup') {
+            title.textContent = 'Create your account';
+            subtitle.textContent = 'Join StudyHub and start learning today.';
+        } else {
+            title.textContent = 'Welcome back';
+            subtitle.textContent = 'Sign in to continue your learning journey.';
+        }
+    }
 }
 
 /* ========================================
