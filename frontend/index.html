@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Auth App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Student Learning Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,41 +11,128 @@
 
 <div class="container">
 
-    <h1>My App</h1>
+    <!-- Auth Section -->
+    <div id="auth" class="auth-wrapper">
+        <div class="auth-card">
+            
+            <!-- Logo/Header -->
+            <div class="auth-header">
+                <div class="app-icon">📚</div>
+                <h1>StudyHub</h1>
+                <p class="tagline">Your Personal Learning Companion</p>
+            </div>
 
-    <div id="auth">
+            <!-- Tab Navigation -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+                <button class="tab-btn" onclick="switchTab('signup')">Create Account</button>
+            </div>
 
-        <h2>Sign Up</h2>
+            <!-- Login Form -->
+            <div id="login" class="auth-form active">
+                <form onsubmit="login(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input 
+                            id="loginEmail" 
+                            type="email"
+                            placeholder="your@email.com"
+                            required
+                        >
+                    </div>
 
-        <input id="signupEmail" placeholder="Email">
-        <input id="signupPassword" placeholder="Password" type="password">
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input 
+                            id="loginPassword" 
+                            type="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
 
-        <button onclick="signup()">Create Account</button>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Sign In
+                    </button>
+                </form>
 
+                <p class="auth-footer">
+                    Don't have an account? 
+                    <a href="#" onclick="switchTab('signup'); return false;">Create one</a>
+                </p>
+            </div>
 
-        <h2>Sign In</h2>
+            <!-- Signup Form -->
+            <div id="signup" class="auth-form">
+                <form onsubmit="signup(event)">
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input 
+                            id="signupEmail" 
+                            type="email"
+                            placeholder="your@email.com"
+                            required
+                        >
+                    </div>
 
-        <input id="loginEmail" placeholder="Email">
-        <input id="loginPassword" placeholder="Password" type="password">
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input 
+                            id="signupPassword" 
+                            type="password"
+                            placeholder="Create a strong password"
+                            required
+                        >
+                    </div>
 
-        <button onclick="login()">Login</button>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input 
+                            id="signupConfirm" 
+                            type="password"
+                            placeholder="Re-enter your password"
+                            required
+                        >
+                    </div>
 
+                    <p class="password-hint">
+                        ✓ Use at least 8 characters
+                    </p>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Create Account
+                    </button>
+                </form>
+
+                <p class="auth-footer">
+                    Already have an account? 
+                    <a href="#" onclick="switchTab('login'); return false;">Sign in</a>
+                </p>
+            </div>
+
+        </div>
     </div>
 
+    <!-- Profile Section -->
+    <div id="profile" class="profile-wrapper" style="display:none;">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar">👤</div>
+                <h2>Welcome!</h2>
+            </div>
 
-    <div id="profile" style="display:none">
+            <div class="profile-content">
+                <p class="profile-user" id="user"></p>
+                <p class="profile-message">You're all set to start learning.</p>
+            </div>
 
-        <h2>Welcome</h2>
-
-        <p id="user"></p>
-
-        <button onclick="logout()">Logout</button>
-
+            <button onclick="logout()" class="btn btn-secondary btn-block">
+                Sign Out
+            </button>
+        </div>
     </div>
-
 
 </div>
-
 
 <script src="script.js"></script>
 
