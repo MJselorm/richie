@@ -183,31 +183,48 @@
             </div>
         </div>
 
-        <!-- Profile Section -->
-        <div id="profile" class="profile-wrapper" style="display:none;">
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-avatar" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" width="34" height="34">
-                            <circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h2>Welcome!</h2>
-                </div>
+        <!-- Dashboard Section -->
+        <div id="profile" class="dashboard" style="display:none;">
 
-                <div class="profile-content">
-                    <span class="profile-label">Signed in as</span>
-                    <p class="profile-user" id="user"></p>
-                    <p class="profile-message">You're all set to start learning. Pick up right where you left off.</p>
+            <!-- Top bar -->
+            <header class="dash-topbar">
+                <div class="brand-logo dash-brand">
+                    <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
+                        <path d="M12 4 3 8.5 12 13l9-4.5L12 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                        <path d="M6.5 10.5V15c0 1 2.5 2.5 5.5 2.5s5.5-1.5 5.5-2.5v-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 8.5V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                    <span>StudyHub</span>
                 </div>
+                <button onclick="logout()" class="btn btn-secondary btn-signout">
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16" aria-hidden="true">
+                        <path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 8 6 12l4 4M6 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Sign Out
+                </button>
+            </header>
 
-                <div class="profile-actions">
-                    <button onclick="logout()" class="btn btn-secondary btn-block">
-                        Sign Out
-                    </button>
+            <!-- Welcome hero -->
+            <section class="dash-hero">
+                <div class="dash-avatar" id="dashAvatar" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" width="38" height="38">
+                        <circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
                 </div>
-            </div>
+                <div class="dash-hero-text">
+                    <span class="dash-eyebrow">Welcome back</span>
+                    <h1 id="dashGreeting">Welcome!</h1>
+                    <p class="dash-user" id="user"></p>
+                </div>
+            </section>
+
+            <!-- Profile detail cards -->
+            <section class="dash-grid" id="dashGrid" aria-live="polite">
+                <!-- Cards injected by script.js -->
+            </section>
+
         </div>
 
     </div>
