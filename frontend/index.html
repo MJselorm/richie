@@ -113,25 +113,119 @@
         </div>
     </div>
 
-    <!-- Profile Section -->
-    <div id="profile" class="profile-wrapper" style="display:none;">
-        <div class="profile-card">
-            <div class="profile-header">
-                <div class="profile-avatar">👤</div>
-                <h2>Welcome!</h2>
-            </div>
+</div>
 
-            <div class="profile-content">
-                <p class="profile-user" id="user"></p>
-                <p class="profile-message">You're all set to start learning.</p>
-            </div>
+<!-- Dashboard Section -->
+<div id="dashboard" class="dashboard" style="display:none;">
 
-            <button onclick="logout()" class="btn btn-secondary btn-block">
-                Sign Out
-            </button>
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">📚</span>
+                <span class="brand-name">StudyHub</span>
+            </div>
+            <div class="topbar-right">
+                <div class="user-chip" id="userChip">
+                    <span class="user-avatar" id="userInitial" aria-hidden="true">S</span>
+                    <span class="user-email" id="user"></span>
+                </div>
+                <button onclick="logout()" class="btn btn-ghost" type="button">Sign Out</button>
+            </div>
         </div>
-    </div>
+    </header>
 
+    <main class="dashboard-main">
+
+        <!-- Greeting -->
+        <section class="greeting">
+            <div>
+                <h1 id="greetingText">Good day!</h1>
+                <p class="greeting-sub" id="greetingSub">Here's your study snapshot for today.</p>
+            </div>
+            <button class="btn btn-primary" type="button" onclick="openTaskInput()">+ New Task</button>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-grid" aria-label="Study statistics">
+            <article class="stat-card">
+                <span class="stat-icon stat-icon--blue" aria-hidden="true">🔥</span>
+                <div>
+                    <p class="stat-value" id="statStreak">0</p>
+                    <p class="stat-label">Day streak</p>
+                </div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon stat-icon--orange" aria-hidden="true">⏱️</span>
+                <div>
+                    <p class="stat-value" id="statHours">0h</p>
+                    <p class="stat-label">Focused today</p>
+                </div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon stat-icon--green" aria-hidden="true">✅</span>
+                <div>
+                    <p class="stat-value" id="statTasks">0/0</p>
+                    <p class="stat-label">Tasks done</p>
+                </div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon stat-icon--blue" aria-hidden="true">🎓</span>
+                <div>
+                    <p class="stat-value" id="statCourses">0</p>
+                    <p class="stat-label">Active courses</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Two column layout -->
+        <div class="dashboard-columns">
+
+            <!-- Left: Tasks -->
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>Today's Tasks</h2>
+                    <span class="panel-meta" id="tasksMeta">0 remaining</span>
+                </div>
+
+                <form id="taskForm" class="task-input" onsubmit="addTask(event)">
+                    <input id="taskInput" type="text" placeholder="Add a study task..." autocomplete="off">
+                    <button class="btn btn-primary btn-sm" type="submit">Add</button>
+                </form>
+
+                <ul class="task-list" id="taskList"></ul>
+                <p class="empty-state" id="taskEmpty">No tasks yet. Add your first one above.</p>
+            </section>
+
+            <!-- Right column -->
+            <div class="side-column">
+
+                <!-- Focus Timer -->
+                <section class="panel timer-panel">
+                    <div class="panel-head">
+                        <h2>Focus Timer</h2>
+                    </div>
+                    <div class="timer-display" id="timerDisplay">25:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary btn-sm" id="timerToggle" type="button" onclick="toggleTimer()">Start</button>
+                        <button class="btn btn-secondary btn-sm" type="button" onclick="resetTimer()">Reset</button>
+                    </div>
+                    <p class="timer-hint">25 minute focus session</p>
+                </section>
+
+                <!-- Courses -->
+                <section class="panel">
+                    <div class="panel-head">
+                        <h2>Courses</h2>
+                        <button class="link-btn" type="button" onclick="addCourse()">+ Add</button>
+                    </div>
+                    <ul class="course-list" id="courseList"></ul>
+                    <p class="empty-state" id="courseEmpty">No courses yet. Add one to track progress.</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
 </div>
 
 <script src="script.js"></script>
