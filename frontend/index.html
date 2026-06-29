@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My App</h1>
+
+    <div id="auth">
+
+        <h2>Sign Up</h2>
+
+        <input id="signupEmail" placeholder="Email">
+        <input id="signupPassword" placeholder="Password" type="password">
+
+        <button onclick="signup()">Create Account</button>
+
+
+        <h2>Sign In</h2>
+
+        <input id="loginEmail" placeholder="Email">
+        <input id="loginPassword" placeholder="Password" type="password">
+
+        <button onclick="login()">Login</button>
+
+    </div>
+
+
+    <div id="profile" style="display:none">
+
+        <h2>Welcome</h2>
+
+        <p id="user"></p>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
