@@ -1,7 +1,7 @@
-const AUTH_API = "http://localhost:8000/auth";
-const PROFILE_API = "http://localhost:8000/profile";
-// const AUTH_API = "https://richie-iynf.onrender.com/auth";
-// const PROFILE_API = "https://richie-iynf.onrender.com/profile";
+//const AUTH_API = "http://localhost:8000/auth";
+//const PROFILE_API = "http://localhost:8000/profile";
+const AUTH_API = "https://richie-iynf.onrender.com/auth";
+const PROFILE_API = "https://richie-iynf.onrender.com/profile";
 
 let currentProfile = null;
 
