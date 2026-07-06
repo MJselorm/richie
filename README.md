@@ -1,6 +1,6 @@
-# Richie Auth Backend
+# StudyHub Student Dashboard
 
-A minimal FastAPI backend for sign up and sign in using Supabase Auth.
+A FastAPI and Supabase Auth student management app with a responsive frontend dashboard.
 
 ## Setup
 
@@ -18,15 +18,33 @@ A minimal FastAPI backend for sign up and sign in using Supabase Auth.
    copy .env.example .env
    ```
 4. Fill in your Supabase project values in `.env`.
+   ```env
+   SUPABASE_URL=your-project-url
+   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+   SUPABASE_ANON_KEY=your-anon-key
+   ```
+5. Run the profile dashboard SQL in Supabase SQL Editor:
+   ```bash
+   supabase_dashboard.sql
+   ```
 
 ## Run
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn app:app --reload
+```
+
+In another terminal, install frontend dependencies and start Vite:
+
+```bash
+npm install
+npm run dev
 ```
 
 ## Endpoints
 
-- `GET /health`
+- `GET /`
 - `POST /auth/signup`
 - `POST /auth/signin`
+- `GET /profile/me`
+- `PATCH /profile/me`

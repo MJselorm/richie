@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0066cc">
-    <meta name="description" content="StudyHub - your personal learning companion. Sign in or create an account to start learning.">
-    <title>StudyHub - Student Learning Platform</title>
+    <meta name="description" content="StudyHub - student management dashboard and learning companion.">
+    <title>StudyHub - Student Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -13,20 +13,14 @@
 </head>
 
 <body>
-
-<div class="page">
-    <!-- Decorative background -->
+<main id="authPage" class="page">
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
 
     <div class="container">
-
-        <!-- Auth Section -->
         <div id="auth" class="auth-wrapper">
             <div class="auth-card">
-
-                <!-- Brand / showcase panel -->
                 <aside class="brand-panel">
                     <div class="brand-top">
                         <div class="brand-logo">
@@ -41,30 +35,9 @@
                     </div>
 
                     <ul class="brand-features">
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-                                    <path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                            <span>Organize courses &amp; study notes</span>
-                        </li>
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-                                    <path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                            <span>Track learning progress over time</span>
-                        </li>
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-                                    <path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                            <span>Study anywhere, on any device</span>
-                        </li>
+                        <li><span class="feature-icon" aria-hidden="true">✓</span><span>Organize courses &amp; study notes</span></li>
+                        <li><span class="feature-icon" aria-hidden="true">✓</span><span>Track learning progress over time</span></li>
+                        <li><span class="feature-icon" aria-hidden="true">✓</span><span>Study anywhere, on any device</span></li>
                     </ul>
 
                     <div class="brand-foot">
@@ -75,21 +48,18 @@
                     </div>
                 </aside>
 
-                <!-- Form panel -->
                 <div class="form-panel">
                     <div class="form-head">
                         <h1 id="formTitle">Welcome back</h1>
                         <p id="formSubtitle">Sign in to continue your learning journey.</p>
                     </div>
 
-                    <!-- Tab Navigation -->
                     <div class="auth-tabs" role="tablist" aria-label="Authentication">
-                        <button class="tab-btn active" role="tab" onclick="switchTab('login')">Sign In</button>
-                        <button class="tab-btn" role="tab" onclick="switchTab('signup')">Create Account</button>
+                        <button class="tab-btn active" role="tab" type="button" onclick="switchTab('login', this)">Sign In</button>
+                        <button class="tab-btn" role="tab" type="button" onclick="switchTab('signup', this)">Create Account</button>
                         <span class="tab-indicator" aria-hidden="true"></span>
                     </div>
 
-                    <!-- Login Form -->
                     <div id="login" class="auth-form active">
                         <form onsubmit="login(event)">
                             <div class="form-group">
@@ -114,9 +84,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Sign In
-                            </button>
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </form>
 
                         <p class="auth-footer">
@@ -125,7 +93,6 @@
                         </p>
                     </div>
 
-                    <!-- Signup Form -->
                     <div id="signup" class="auth-form">
                         <form onsubmit="signup(event)">
                             <div class="form-group">
@@ -161,16 +128,9 @@
                                 </div>
                             </div>
 
-                            <p class="password-hint">
-                                <svg viewBox="0 0 24 24" fill="none" width="15" height="15" aria-hidden="true">
-                                    <path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Use at least 8 characters
-                            </p>
+                            <p class="password-hint">✓ Use at least 8 characters</p>
 
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Create Account
-                            </button>
+                            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
                         </form>
 
                         <p class="auth-footer">
@@ -179,41 +139,167 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
-
-        <!-- Profile Section -->
-        <div id="profile" class="profile-wrapper" style="display:none;">
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-avatar" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" width="34" height="34">
-                            <circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h2>Welcome!</h2>
-                </div>
-
-                <div class="profile-content">
-                    <span class="profile-label">Signed in as</span>
-                    <p class="profile-user" id="user"></p>
-                    <p class="profile-message">You're all set to start learning. Pick up right where you left off.</p>
-                </div>
-
-                <div class="profile-actions">
-                    <button onclick="logout()" class="btn btn-secondary btn-block">
-                        Sign Out
-                    </button>
-                </div>
-            </div>
-        </div>
-
     </div>
-</div>
+</main>
+
+<section id="dashboardApp" class="dashboard-app" style="display:none;">
+    <aside class="app-sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <span class="sidebar-logo" aria-hidden="true">S</span>
+            <div>
+                <strong>StudyHub</strong>
+                <span>Student Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+            <button class="nav-item active" type="button" data-view="dashboard">Dashboard</button>
+            <button class="nav-item" type="button" data-view="courses">Courses</button>
+            <button class="nav-item" type="button" data-view="assignments">Assignments</button>
+            <button class="nav-item" type="button" data-view="timetable">Timetable</button>
+            <button class="nav-item" type="button" data-view="results">Results</button>
+            <button class="nav-item" type="button" data-view="resources">Resources</button>
+            <button class="nav-item" type="button" data-view="settings">Settings</button>
+        </nav>
+
+        <button class="sidebar-signout" type="button" onclick="logout()">Sign Out</button>
+    </aside>
+
+    <div class="app-main">
+        <header class="app-topbar">
+            <button class="icon-btn menu-btn" type="button" onclick="toggleSidebar()" aria-label="Open navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div>
+                <p class="eyebrow">Student Dashboard</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="topbar-user">
+                <img id="topbarAvatar" alt="" class="topbar-avatar">
+                <div>
+                    <strong id="topbarName">Student</strong>
+                    <span id="topbarEmail"></span>
+                </div>
+            </div>
+        </header>
+
+        <section id="dashboardView" class="view active-view">
+            <div class="student-hero">
+                <div class="student-avatar-wrap">
+                    <img id="profileAvatar" alt="" class="student-avatar">
+                    <span id="profileInitials" class="student-initials">S</span>
+                </div>
+                <div class="student-summary">
+                    <p class="eyebrow">Welcome back</p>
+                    <h2 id="studentName">Student</h2>
+                    <p id="studentEmail" class="muted"></p>
+                </div>
+                <button class="btn btn-secondary" type="button" onclick="showView('settings')">Edit Profile</button>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <span>Program</span>
+                    <strong id="statProgram">Not set</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Department</span>
+                    <strong id="statDepartment">Not set</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Level</span>
+                    <strong id="statLevel">Not set</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Student ID</span>
+                    <strong id="statStudentId">Not set</strong>
+                </article>
+            </div>
+
+            <div class="content-grid">
+                <article class="panel">
+                    <div class="panel-head">
+                        <h3>Profile Details</h3>
+                        <span class="status-pill">Active</span>
+                    </div>
+                    <dl class="detail-list" id="profileDetails"></dl>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-head">
+                        <h3>Next Steps</h3>
+                    </div>
+                    <ul class="task-list">
+                        <li>Complete your student profile in Settings.</li>
+                        <li>Courses, Assignments, Timetable, Results, and Resources are ready for future modules.</li>
+                        <li>Keep your contact details up to date.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="settingsView" class="view">
+            <div class="panel settings-panel">
+                <div class="panel-head">
+                    <div>
+                        <h3>Profile Settings</h3>
+                        <p class="muted">Update the details stored in your existing Supabase profiles table.</p>
+                    </div>
+                </div>
+
+                <form id="settingsForm" class="settings-form" onsubmit="saveProfile(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" name="full_name" type="text" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="avatarUrl">Profile Picture URL</label>
+                        <input id="avatarUrl" name="avatar_url" type="url" placeholder="https://example.com/photo.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input id="studentId" name="student_id" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program</label>
+                        <input id="program" name="program" type="text" placeholder="BSc Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input id="department" name="department" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <input id="level" name="level" type="text" placeholder="Level 200">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-group readonly-field">
+                        <label>Email</label>
+                        <input id="settingsEmail" type="email" readonly>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Save Changes</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="placeholderView" class="view">
+            <article class="panel placeholder-panel">
+                <p class="eyebrow">Coming Soon</p>
+                <h2 id="placeholderTitle">Feature</h2>
+                <p class="muted">This section is prepared in the dashboard navigation and can be connected when the module is ready.</p>
+            </article>
+        </section>
+    </div>
+</section>
+
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar(false)"></div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
