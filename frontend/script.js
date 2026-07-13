@@ -170,41 +170,27 @@ function renderProfile(profile) {
     const avatarUrl = profile.avatar_url || "";
     const initials = getInitials(displayName, email);
 
-    setText("topbarName", displayName);
-    setText("topbarEmail", email);
+    setText("sidebarName", displayName);
     setText("studentName", displayName);
     setText("studentEmail", email);
+    
+    setText("sidebarInitials", initials);
     setText("profileInitials", initials);
+    setText("widgetInitials", initials);
 
     setText("statProgram", profile.program || "Not set");
     setText("statDepartment", profile.department || "Not set");
     setText("statLevel", profile.level || "Not set");
     setText("statStudentId", profile.student_id || "Not set");
 
-    renderAvatar("topbarAvatar", avatarUrl);
+    renderAvatar("sidebarAvatar", avatarUrl);
     renderAvatar("profileAvatar", avatarUrl);
-    document.getElementById("profileInitials").style.display = avatarUrl ? "none" : "grid";
-
-    const details = [
-        ["Full Name", displayName],
-        ["Email", email],
-        ["Student ID", profile.student_id || "Not set"],
-        ["Program", profile.program || "Not set"],
-        ["Department", profile.department || "Not set"],
-        ["Level", profile.level || "Not set"],
-        ["Phone", profile.phone || "Not set"],
-        ["Role", profile.role || "user"],
-    ];
-
-    const detailsNode = document.getElementById("profileDetails");
-    detailsNode.innerHTML = "";
-    details.forEach(([label, value]) => {
-        const term = document.createElement("dt");
-        const description = document.createElement("dd");
-        term.textContent = label;
-        description.textContent = value;
-        detailsNode.append(term, description);
-    });
+    renderAvatar("widgetAvatar", avatarUrl);
+    
+    const initialsDisplay = avatarUrl ? "none" : "flex";
+    if (document.getElementById("sidebarInitials")) document.getElementById("sidebarInitials").style.display = initialsDisplay;
+    if (document.getElementById("profileInitials")) document.getElementById("profileInitials").style.display = avatarUrl ? "none" : "flex";
+    if (document.getElementById("widgetInitials")) document.getElementById("widgetInitials").style.display = initialsDisplay;
 
     fillSettingsForm(profile);
 }
@@ -218,6 +204,9 @@ function fillSettingsForm(profile) {
     setValue("level", profile.level || "");
     setValue("phone", profile.phone || "");
     setValue("settingsEmail", profile.email || localStorage.getItem("userEmail") || "");
+    
+    const bioKey = "bio_" + (profile.id || localStorage.getItem("userId") || "default");
+    setValue("bio", profile.bio || localStorage.getItem(bioKey) || "");
 }
 
 async function saveProfile(event) {
@@ -239,6 +228,11 @@ async function saveProfile(event) {
         level: getValue("level"),
         phone: getValue("phone"),
     };
+
+    // Save bio locally to localStorage since it's not stored in the remote profiles table
+    const bioValue = getValue("bio");
+    const userId = (currentProfile && currentProfile.id) || localStorage.getItem("userId") || "default";
+    localStorage.setItem("bio_" + userId, bioValue);
 
     try {
         const res = await fetch(`${PROFILE_API}/me`, {
@@ -269,12 +263,37 @@ function showView(viewName) {
     document.querySelectorAll(".view").forEach((view) => {
         view.classList.remove("active-view");
     });
+    
     document.querySelectorAll(".nav-item").forEach((item) => {
-        item.classList.toggle("active", item.dataset.view === viewName);
+        const targetView = item.dataset.view;
+        item.classList.toggle("active", targetView === viewName || (viewName === "settings" && targetView === "profile"));
     });
 
     const title = toTitle(viewName);
-    setText("pageTitle", title);
+    setText("pageTitle", viewName === "dashboard" ? "Department Overview" : title);
+
+    const subtitleNode = document.getElementById("pageSubtitle");
+    if (subtitleNode) {
+        if (viewName === "dashboard") {
+            const displayName = (currentProfile && currentProfile.full_name) || "Student";
+            subtitleNode.textContent = `Welcome back, ${displayName}! 👋`;
+        } else if (viewName === "settings") {
+            subtitleNode.textContent = "Manage your account preferences and customize your experience.";
+        } else {
+            subtitleNode.textContent = "Stay updated with the latest from your department.";
+        }
+    }
+
+    const appMain = document.querySelector(".app-main");
+    if (appMain) {
+        if (viewName === "dashboard") {
+            appMain.classList.remove("light-theme-bg");
+            appMain.classList.add("dark-theme-bg");
+        } else {
+            appMain.classList.remove("dark-theme-bg");
+            appMain.classList.add("light-theme-bg");
+        }
+    }
 
     if (viewName === "dashboard") {
         document.getElementById("dashboardView").classList.add("active-view");
@@ -392,10 +411,56 @@ function showAlert(message, type) {
     setTimeout(() => alert.remove(), 4000);
 }
 
+function toggleUserDropdown(event) {
+    event.stopPropagation();
+    const dropdown = document.getElementById("userDropdown");
+    if (dropdown) dropdown.classList.toggle("show");
+}
+
+function triggerAvatarUpload() {
+    const url = prompt("Enter profile picture URL:");
+    if (url !== null) {
+        setValue("avatarUrl", url.trim());
+        
+        // Update all avatar previews immediately
+        renderAvatar("sidebarAvatar", url);
+        renderAvatar("profileAvatar", url);
+        renderAvatar("widgetAvatar", url);
+        
+        // Toggle initials visibility
+        const initialsDisplay = url ? "none" : "flex";
+        if (document.getElementById("sidebarInitials")) document.getElementById("sidebarInitials").style.display = initialsDisplay;
+        if (document.getElementById("profileInitials")) document.getElementById("profileInitials").style.display = initialsDisplay;
+        if (document.getElementById("widgetInitials")) document.getElementById("widgetInitials").style.display = initialsDisplay;
+        
+        showSuccess("Profile picture URL loaded. Click 'Save Changes' to update!");
+    }
+}
+
+function toggleDarkModePref(event) {
+    const isDark = event.target.checked;
+    const appMain = document.querySelector(".app-main");
+    if (appMain) {
+        if (isDark) {
+            appMain.classList.remove("light-theme-bg");
+            appMain.classList.add("dark-theme-bg");
+        } else {
+            appMain.classList.remove("dark-theme-bg");
+            appMain.classList.add("light-theme-bg");
+        }
+    }
+}
+
 window.addEventListener("load", () => {
     setupNavigation();
 
     if (localStorage.getItem("token")) {
         loadDashboard();
     }
+    
+    // Close user dropdown on outside clicks
+    document.addEventListener("click", () => {
+        const dropdown = document.getElementById("userDropdown");
+        if (dropdown) dropdown.classList.remove("show");
+    });
 });

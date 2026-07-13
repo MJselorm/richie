@@ -147,24 +147,95 @@
 <section id="dashboardApp" class="dashboard-app" style="display:none;">
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <span class="sidebar-logo" aria-hidden="true">S</span>
-            <div>
-                <strong>StudyHub</strong>
-                <span>Student Portal</span>
+            <div class="exposure-logo">
+                <span class="exposure-logo-thin">EXPO</span>
+                <span class="exposure-logo-bold">SURE</span>
             </div>
         </div>
 
         <nav class="sidebar-nav" aria-label="Dashboard navigation">
-            <button class="nav-item active" type="button" data-view="dashboard">Dashboard</button>
-            <button class="nav-item" type="button" data-view="courses">Courses</button>
-            <button class="nav-item" type="button" data-view="assignments">Assignments</button>
-            <button class="nav-item" type="button" data-view="timetable">Timetable</button>
-            <button class="nav-item" type="button" data-view="results">Results</button>
-            <button class="nav-item" type="button" data-view="resources">Resources</button>
-            <button class="nav-item" type="button" data-view="settings">Settings</button>
+            <button class="nav-item active" type="button" data-view="dashboard">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="9" rx="1"/>
+                    <rect x="14" y="3" width="7" height="5" rx="1"/>
+                    <rect x="14" y="12" width="7" height="9" rx="1"/>
+                    <rect x="3" y="16" width="7" height="5" rx="1"/>
+                </svg>
+                Dashboard
+            </button>
+            <button class="nav-item" type="button" data-view="courses">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Courses
+            </button>
+            <button class="nav-item" type="button" data-view="assignments">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+                Assignments
+            </button>
+            <button class="nav-item" type="button" data-view="timetable">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Timetable
+            </button>
+            <button class="nav-item" type="button" data-view="results">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                Results
+            </button>
+            <button class="nav-item" type="button" data-view="resources">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+                Resources
+            </button>
+            
+            <div class="nav-section-title">SYSTEM</div>
+            
+            <button class="nav-item" type="button" data-view="profile" onclick="showView('settings')">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Profile
+            </button>
+            <button class="nav-item" type="button" data-view="settings">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.54 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+                </svg>
+                Settings
+            </button>
         </nav>
 
-        <button class="sidebar-signout" type="button" onclick="logout()">Sign Out</button>
+        <div class="sidebar-user-card">
+            <img id="sidebarAvatar" alt="" class="sidebar-user-avatar" style="display: none;">
+            <div id="sidebarInitials" class="sidebar-user-initials">S</div>
+            <div class="sidebar-user-info">
+                <strong id="sidebarName">Student</strong>
+                <span class="sidebar-user-role">Student</span>
+            </div>
+            <div class="sidebar-user-actions" id="sidebarUserActionsBtn" onclick="toggleUserDropdown(event)">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="5" r="1"/>
+                    <circle cx="12" cy="12" r="1"/>
+                    <circle cx="12" cy="19" r="1"/>
+                </svg>
+                <div id="userDropdown" class="user-dropdown">
+                    <button type="button" onclick="logout()">Sign Out</button>
+                </div>
+            </div>
+        </div>
     </aside>
 
     <div class="app-main">
@@ -172,119 +243,361 @@
             <button class="icon-btn menu-btn" type="button" onclick="toggleSidebar()" aria-label="Open navigation">
                 <span></span><span></span><span></span>
             </button>
-            <div>
-                <p class="eyebrow">Student Dashboard</p>
+            <div class="topbar-left">
                 <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle" class="topbar-subtitle">Welcome back, Student! 👋</p>
             </div>
-            <div class="topbar-user">
-                <img id="topbarAvatar" alt="" class="topbar-avatar">
-                <div>
-                    <strong id="topbarName">Student</strong>
-                    <span id="topbarEmail"></span>
-                </div>
+            <div class="topbar-right">
+                <button class="topbar-icon-btn" aria-label="Search" onclick="showAlert('Search functionality is coming soon!', 'success')">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+                <button class="topbar-icon-btn notification-btn" aria-label="Notifications" onclick="showAlert('You have 3 unread announcements!', 'success')">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="topbar-icon-btn" aria-label="Messages" onclick="showAlert('Messages are coming soon!', 'success')">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </button>
             </div>
         </header>
 
         <section id="dashboardView" class="view active-view">
-            <div class="student-hero">
-                <div class="student-avatar-wrap">
-                    <img id="profileAvatar" alt="" class="student-avatar">
-                    <span id="profileInitials" class="student-initials">S</span>
-                </div>
-                <div class="student-summary">
-                    <p class="eyebrow">Welcome back</p>
-                    <h2 id="studentName">Student</h2>
-                    <p id="studentEmail" class="muted"></p>
-                </div>
-                <button class="btn btn-secondary" type="button" onclick="showView('settings')">Edit Profile</button>
-            </div>
-
-            <div class="stats-grid">
-                <article class="stat-card">
-                    <span>Program</span>
-                    <strong id="statProgram">Not set</strong>
-                </article>
-                <article class="stat-card">
-                    <span>Department</span>
-                    <strong id="statDepartment">Not set</strong>
-                </article>
-                <article class="stat-card">
-                    <span>Level</span>
-                    <strong id="statLevel">Not set</strong>
-                </article>
-                <article class="stat-card">
-                    <span>Student ID</span>
-                    <strong id="statStudentId">Not set</strong>
-                </article>
-            </div>
-
-            <div class="content-grid">
-                <article class="panel">
-                    <div class="panel-head">
-                        <h3>Profile Details</h3>
-                        <span class="status-pill">Active</span>
+            <div class="dashboard-grid-container">
+                <!-- Welcome Banner -->
+                <div class="exposure-welcome-banner">
+                    <div class="exposure-welcome-info">
+                        <img id="profileAvatar" alt="" class="exposure-welcome-avatar" style="display: none;">
+                        <div id="profileInitials" class="exposure-welcome-initials">S</div>
+                        <div class="exposure-welcome-text">
+                            <p>Welcome back,</p>
+                            <h2 id="studentName">Student</h2>
+                            <p id="studentEmail" class="muted"></p>
+                        </div>
                     </div>
-                    <dl class="detail-list" id="profileDetails"></dl>
-                </article>
+                    <button class="btn btn-secondary" type="button" onclick="showView('settings')">Edit Profile</button>
+                </div>
 
-                <article class="panel">
-                    <div class="panel-head">
-                        <h3>Next Steps</h3>
-                    </div>
-                    <ul class="task-list">
-                        <li>Complete your student profile in Settings.</li>
-                        <li>Courses, Assignments, Timetable, Results, and Resources are ready for future modules.</li>
-                        <li>Keep your contact details up to date.</li>
-                    </ul>
-                </article>
+                <!-- Stats Row -->
+                <div class="exposure-stats-row">
+                    <article class="exposure-stat-card">
+                        <span>Program</span>
+                        <strong id="statProgram">Not set</strong>
+                    </article>
+                    <article class="exposure-stat-card">
+                        <span>Department</span>
+                        <strong id="statDepartment">Not set</strong>
+                    </article>
+                    <article class="exposure-stat-card">
+                        <span>Level</span>
+                        <strong id="statLevel">Not set</strong>
+                    </article>
+                    <article class="exposure-stat-card">
+                        <span>Student ID</span>
+                        <strong id="statStudentId">Not set</strong>
+                    </article>
+                </div>
+
+                <!-- 2-Column Panels -->
+                <div class="exposure-dashboard-panels">
+                    <!-- Latest Announcements Panel -->
+                    <article class="exposure-card-panel">
+                        <div>
+                            <div class="exposure-panel-header">
+                                <div class="exposure-panel-title-area">
+                                    <div class="exposure-panel-icon-wrap">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Latest Announcements</h3>
+                                </div>
+                                <a href="#" class="exposure-panel-view-all" onclick="showView('resources'); return false;">View All</a>
+                            </div>
+
+                            <div class="announcement-list">
+                                <div class="announcement-item">
+                                    <div class="announcement-details">
+                                        <h4 class="announcement-item-title">Midterm Examination Schedule</h4>
+                                        <p class="announcement-item-desc">The midterm examinations will begin from May 20th. All students are advised to check the detailed schedule...</p>
+                                    </div>
+                                    <div class="announcement-meta">
+                                        <span class="tag-badge academic">Academic</span>
+                                        <span class="announcement-date">May 12, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-details">
+                                        <h4 class="announcement-item-title">Department Meet &amp; Greet</h4>
+                                        <p class="announcement-item-desc">Join us for an interactive session with faculty and fellow students.</p>
+                                    </div>
+                                    <div class="announcement-meta">
+                                        <span class="tag-badge general">General</span>
+                                        <span class="announcement-date">May 10, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-details">
+                                        <h4 class="announcement-item-title">Submission Deadline Reminder</h4>
+                                        <p class="announcement-item-desc">Reminder: The last date to submit your projects is May 18, 2025 by 11:59 PM.</p>
+                                    </div>
+                                    <div class="announcement-meta">
+                                        <span class="tag-badge academic">Academic</span>
+                                        <span class="announcement-date">May 09, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-details">
+                                        <h4 class="announcement-item-title">Workshop on UI/UX Design</h4>
+                                        <p class="announcement-item-desc">Hands-on workshop on UI/UX principles and tools.</p>
+                                    </div>
+                                    <div class="announcement-meta">
+                                        <span class="tag-badge workshop">Workshop</span>
+                                        <span class="announcement-date">May 07, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-details">
+                                        <h4 class="announcement-item-title">Annual Department Fest</h4>
+                                        <p class="announcement-item-desc">Get ready for CAESAR 2025! Mark your calendars.</p>
+                                    </div>
+                                    <div class="announcement-meta">
+                                        <span class="tag-badge event">Event</span>
+                                        <span class="announcement-date">May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="exposure-panel-footer-btn" onclick="showView('resources'); return false;">View All Announcements</a>
+                    </article>
+
+                    <!-- Upcoming Events Panel -->
+                    <article class="exposure-card-panel">
+                        <div>
+                            <div class="exposure-panel-header">
+                                <div class="exposure-panel-title-area">
+                                    <div class="exposure-panel-icon-wrap">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6"/>
+                                            <line x1="8" y1="2" x2="8" y2="6"/>
+                                            <line x1="3" y1="10" x2="21" y2="10"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Upcoming Events</h3>
+                                </div>
+                                <a href="#" class="exposure-panel-view-all" onclick="showView('timetable'); return false;">View All</a>
+                            </div>
+
+                            <div class="event-list">
+                                <div class="event-item">
+                                    <div class="event-date-block">
+                                        <span class="event-date-month">May</span>
+                                        <span class="event-date-day">15</span>
+                                    </div>
+                                    <div class="event-details">
+                                        <h4 class="event-item-title">Design Thinking Workshop</h4>
+                                        <p class="event-item-meta">10:00 AM - 01:00 PM | Seminar Hall 1</p>
+                                    </div>
+                                    <span class="event-countdown-badge">In 3 days</span>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date-block">
+                                        <span class="event-date-month">May</span>
+                                        <span class="event-date-day">18</span>
+                                    </div>
+                                    <div class="event-details">
+                                        <h4 class="event-item-title">Project Expo - CAESAR</h4>
+                                        <p class="event-item-meta">09:00 AM - 04:00 PM | Main Auditorium</p>
+                                    </div>
+                                    <span class="event-countdown-badge">In 6 days</span>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date-block">
+                                        <span class="event-date-month">May</span>
+                                        <span class="event-date-day">22</span>
+                                    </div>
+                                    <div class="event-details">
+                                        <h4 class="event-item-title">Alumni Interaction Session</h4>
+                                        <p class="event-item-meta">02:00 PM - 04:00 PM | Seminar Hall 2</p>
+                                    </div>
+                                    <span class="event-countdown-badge">In 10 days</span>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date-block">
+                                        <span class="event-date-month">May</span>
+                                        <span class="event-date-day">28</span>
+                                    </div>
+                                    <div class="event-details">
+                                        <h4 class="event-item-title">Department Sports Day</h4>
+                                        <p class="event-item-meta">09:00 AM - 05:00 PM | College Ground</p>
+                                    </div>
+                                    <span class="event-countdown-badge">In 16 days</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="exposure-panel-footer-btn" onclick="showView('timetable'); return false;">View All Events</a>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section id="settingsView" class="view">
-            <div class="panel settings-panel">
-                <div class="panel-head">
-                    <div>
-                        <h3>Profile Settings</h3>
-                        <p class="muted">Update the details stored in your existing Supabase profiles table.</p>
-                    </div>
+            <div class="settings-grid-layout">
+                <!-- Column 1: Settings Navigation -->
+                <div class="settings-submenu-card">
+                    <button class="settings-menu-item active" type="button" onclick="showView('settings')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Profile Settings
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Account settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        Account
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Notification settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        Notifications
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Privacy settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        Privacy
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Appearance settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v12M6 12h12"/>
+                        </svg>
+                        Appearance
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Security settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        Security
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Language settings are coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        Language
+                    </button>
+                    <button class="settings-menu-item" type="button" onclick="showAlert('Help and Support portal is coming soon!', 'success')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+                        </svg>
+                        Help &amp; Support
+                    </button>
                 </div>
 
-                <form id="settingsForm" class="settings-form" onsubmit="saveProfile(event)">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input id="fullName" name="full_name" type="text" autocomplete="name">
+                <!-- Column 2: Profile Settings Form -->
+                <div class="settings-form-card">
+                    <div class="settings-card-header">
+                        <h2>Profile Settings</h2>
+                        <p class="settings-card-subtitle">Update your personal information.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="avatarUrl">Profile Picture URL</label>
-                        <input id="avatarUrl" name="avatar_url" type="url" placeholder="https://example.com/photo.jpg">
-                    </div>
-                    <div class="form-group">
-                        <label for="studentId">Student ID</label>
-                        <input id="studentId" name="student_id" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="program">Program</label>
-                        <input id="program" name="program" type="text" placeholder="BSc Computer Science">
-                    </div>
-                    <div class="form-group">
-                        <label for="department">Department</label>
-                        <input id="department" name="department" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="level">Level</label>
-                        <input id="level" name="level" type="text" placeholder="Level 200">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input id="phone" name="phone" type="tel" autocomplete="tel">
-                    </div>
-                    <div class="form-group readonly-field">
-                        <label>Email</label>
-                        <input id="settingsEmail" type="email" readonly>
+                    <form id="settingsForm" class="settings-form-flow" onsubmit="saveProfile(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input id="fullName" name="full_name" type="text" autocomplete="name">
+                        </div>
+                        <div class="form-group readonly-field">
+                            <label>Email</label>
+                            <input id="settingsEmail" type="email" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" placeholder="Computer Science Student passionate about technology and design."></textarea>
+                        </div>
+
+                        <!-- Hidden fields to preserve existing database state when updating -->
+                        <input id="avatarUrl" name="avatar_url" type="hidden">
+                        <input id="studentId" name="student_id" type="hidden">
+                        <input id="program" name="program" type="hidden">
+                        <input id="department" name="department" type="hidden">
+                        <input id="level" name="level" type="hidden">
+
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Column 3: Profile Picture & Preferences -->
+                <div class="settings-widgets-column">
+                    <!-- Profile Picture Card -->
+                    <div class="widget-card profile-pic-widget">
+                        <h3>Profile Picture</h3>
+                        <div class="avatar-edit-container">
+                            <img id="widgetAvatar" alt="Profile Picture" class="widget-avatar-img" style="display: none;">
+                            <div id="widgetInitials" class="widget-avatar-initials">S</div>
+                            <label class="avatar-edit-badge" onclick="triggerAvatarUpload()">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <p class="pic-instructions">JPG, PNG or GIF. Max size of 2MB.</p>
+                        <button class="btn-upload-photo" type="button" onclick="triggerAvatarUpload()">Upload New Photo</button>
                     </div>
 
-                    <button class="btn btn-primary" type="submit">Save Changes</button>
-                </form>
+                    <!-- Quick Preferences Card -->
+                    <div class="widget-card quick-preferences-widget">
+                        <h3>Quick Preferences</h3>
+                        <div class="pref-item">
+                            <span>Email Notifications</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="prefEmailNotif" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="pref-item">
+                            <span>Event Reminders</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="prefEventReminders" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="pref-item">
+                            <span>Message Alerts</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="prefMessageAlerts">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="pref-item">
+                            <span>Dark Mode</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="prefDarkMode" checked onchange="toggleDarkModePref(event)">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
